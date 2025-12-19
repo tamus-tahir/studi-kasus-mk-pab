@@ -7,38 +7,17 @@
 
         <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
-            <div class="carousel-item active">
-                <img src="{{ asset('eterna/img/hero-carousel/hero-carousel-1.jpg') }}" alt="">
-                <div class="carousel-container">
-                    <h2>Welcome to <span>Eterna</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <a href="about.html" class="btn-get-started">Get Started</a>
-                </div>
-            </div><!-- End Carousel Item -->
+            @foreach ($slides as $slide)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <img src="{{ asset('storage/' . $slide->image) }}" alt="">
+                    <div class="carousel-container">
+                        <h2>{{ $slide->title }}</h2>
+                        <p>{{ $slide->description }}</p>
+                        <a href="{{ $slide->link }}" class="btn-get-started" target="_blank">{{ $slide->button }}</a>
+                    </div>
+                </div><!-- End Carousel Item -->
+            @endforeach
 
-            <div class="carousel-item">
-                <img src="{{ asset('eterna/img/hero-carousel/hero-carousel-2.jpg') }}" alt="">
-                <div class="carousel-container">
-                    <h2>At vero eos et accusamus</h2>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
-                        quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                        Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                    <a href="about.html" class="btn-get-started">Get Started</a>
-                </div>
-            </div><!-- End Carousel Item -->
-
-            <div class="carousel-item">
-                <img src="{{ asset('eterna/img/hero-carousel/hero-carousel-3.jpg') }}" alt="">
-                <div class="carousel-container">
-                    <h2>Temporibus autem quibusdam</h2>
-                    <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
-                        aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-                        nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-                    <a href="about.html" class="btn-get-started">Get Started</a>
-                </div>
-            </div><!-- End Carousel Item -->
 
             <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
