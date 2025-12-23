@@ -171,6 +171,20 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('postcategory.index') }}">
+                    <i class='bx bx-list-minus'></i>
+                    <span>Kategori Berita</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('post.index') }}">
+                    <i class='bx bx-news'></i>
+                    <span>Berita</span>
+                </a>
+            </li>
+
 
         </ul>
 

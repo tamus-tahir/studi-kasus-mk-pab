@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Front\BerandaController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostCategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\UserController;
@@ -28,4 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::put('/setting/{setting}/update', [SettingController::class, 'update'])->name('setting.update');
+
+    Route::resource('/postcategory', PostCategoryController::class);
+    Route::resource('/post', PostController::class);
 });
