@@ -13,7 +13,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table table-bordered table-striped" id="data-table">
+            <table class="table table-bordered table-striped w-100" id="data-table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -29,8 +29,12 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->postCategory->title }}</td>
-                            <td>{{ $post->post_date }}</td>
-                            <td>
+                            <td>{{ $post->post_date_indo }}</td>
+                            <td class="text-nowrap">
+                                <button type="button" class="btn btn-info btn-sm btn-detail" data-bs-toggle="modal"
+                                    data-bs-target="#detailModal" data-route="{{ route('post.show', $post) }}">
+                                    <i class='bx bx-show'></i>
+                                </button>
                                 <a href="{{ route('post.edit', $post) }}" class="btn btn-warning btn-sm">
                                     <i class='bx bx-edit-alt'></i>
                                 </a>

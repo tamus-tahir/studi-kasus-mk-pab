@@ -72,6 +72,7 @@
                 <nav id="navmenu" class="navmenu">
                     <ul>
                         <li><a href="{{ route('beranda.index') }}" class="active">Beranda</a></li>
+                        <li><a href="{{ route('berita.index') }}">Berita</a></li>
                         <li><a href="#">About</a></li>
                         @if (Auth::user())
                             <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>

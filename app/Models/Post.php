@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -22,5 +23,10 @@ class Post extends Model
     public function postCategory()
     {
         return $this->belongsTo(PostCategory::class);
+    }
+
+    public function getPostDateIndoAttribute()
+    {
+        return Carbon::parse($this->post_date)->translatedFormat('d F Y');
     }
 }
