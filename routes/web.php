@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BerandaController::class, 'index'])->name('beranda.index');
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
+Route::get('/detail-berita/{slug}', [BeritaController::class, 'show'])->name('berita.show');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');

@@ -21,39 +21,32 @@
 
                         <div class="row gy-4">
 
-                            @foreach ($posts as $post)
-                                <div class="col-lg-12">
-                                    <article>
+                            <div class="col-lg-12">
+                                <article>
 
-                                        <div class="post-img">
-                                            <img src="{{ asset('storage/' . $post->cover) }}" alt="{{ $post->title }}"
-                                                class="w-100">
+                                    <div class="post-img">
+                                        <img src="{{ asset('storage/' . $post->cover) }}" alt="{{ $post->title }}"
+                                            class="w-100">
+                                    </div>
+
+                                    <div class="meta-top">
+                                        <ul>
+                                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i>
+                                                {{ $post->post_date_indo }}
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="content">
+                                        {!! $post->content !!}
+
+                                        <div class="read-more">
+                                            <a href="{{ route('berita.index') }}">Back</a>
                                         </div>
+                                    </div>
 
-                                        <h2 class="title">
-                                            <a href="{{ route('berita.show', $post->slug) }}">{{ $post->title }}</a>
-                                        </h2>
-
-                                        <div class="meta-top">
-                                            <ul>
-                                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                                        href="{{ route('berita.show', $post->slug) }}"><time
-                                                            datetime="{{ $post->post_date }}">{{ $post->post_date_indo }}</time></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="content">
-                                            {!! Str::limit($post->content, 200) !!}
-
-                                            <div class="read-more">
-                                                <a href="{{ route('berita.show', $post->slug) }}">Read More</a>
-                                            </div>
-                                        </div>
-
-                                    </article>
-                                </div><!-- End post list item -->
-                            @endforeach
+                                </article>
+                            </div><!-- End post list item -->
 
                         </div><!-- End blog posts list -->
 
@@ -61,29 +54,11 @@
 
                 </section><!-- /Blog Posts Section -->
 
-                <!-- Blog Pagination Section -->
-                {{ $posts->links('pagination::bootstrap-5') }}
-                <!-- /Blog Pagination Section -->
-
             </div>
 
             <div class="col-lg-4 sidebar">
 
                 <div class="widgets-container">
-
-                    <!-- Search Widget -->
-                    <div class="search-widget widget-item">
-
-                        <h3 class="widget-title">Search</h3>
-                        <form action="{{ route('berita.index') }}" method="get">
-                            <input type="text" name="keyword">
-                            @if (request('category'))
-                                <input type="hidden" name="category" value="{{ request('category') }}">
-                            @endif
-                            <button type="submit"><i class="bi bi-search"></i></button>
-                        </form>
-
-                    </div><!--/Search Widget -->
 
                     <!-- Categories Widget -->
                     <div class="categories-widget widget-item">
